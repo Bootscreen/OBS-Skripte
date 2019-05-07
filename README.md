@@ -13,17 +13,16 @@ Starts a continous timer after which a replay is saved.
 ![Settings Image](Images/AutoSaveReplay.jpg)
 
 ## Problems?
-
  - [here](https://github.com/Bootscreen/OBS-Skripte/issues) on Github
  - [here](http://discord.bootscreen.net) on my Discord
  - [here](http://twitch.bootscreen.net) on Twitch
 
 ## Support
 You can support me on:
-
- - List item
+ - [here](http://twitch.bootscreen.net) on Twitch
+ - [here](http://donation.bootscreen.net) on Streamlabs
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNDUxMjMzNSwtNzcwNDI2MzksLTExNj
-I1Nzc0NjEsMTI2OTgzNTcwMSwtMTE2MjU3NzQ2MV19
+eyJoaXN0b3J5IjpbLTE1NjUwNzIyNjcsLTc3MDQyNjM5LC0xMT
+YyNTc3NDYxLDEyNjk4MzU3MDEsLTExNjI1Nzc0NjFdfQ==
 -->
