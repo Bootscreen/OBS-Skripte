@@ -2,8 +2,8 @@
 # title             : AutoMoveReplay.py
 # description       : Moves Replays to another Folder when the Replay Buffer is stopped
 # author            : Bootscreen
-# date              : 2019 05 07
-# version           : 0.1
+# date              : 2019 05 11
+# version           : 0.2
 # dependencies      : - Python 3.6 (https://www.python.org/)
 #                   :   - shutil (https://github.com/mhammond/pywin32/releases)
 # notes             : Follow this step for this script to work:
@@ -41,7 +41,7 @@ def script_defaults(settings):
     global location_to
 
     obs.obs_data_set_default_bool(settings, "enabled", enabled)
-    obs.obs_data_set_default_bool(settings, "enabled", debug_mode)
+    obs.obs_data_set_default_bool(settings, "debug_mode", debug_mode)
     obs.obs_data_set_default_string(settings, "location_to", "")
 
 def script_description():
@@ -55,7 +55,7 @@ def script_properties():
     props = obs.obs_properties_create()
     obs.obs_properties_add_bool(props, "enabled", "Enabled")
     obs.obs_properties_add_bool(props, "debug_mode", "Debug Mode")
-    obs.obs_properties_add_text(props, "location_to", "Path where the Replays should be moved", obs.OBS_TEXT_DEFAULT )
+    obs.obs_properties_add_path(props, "location_to", "Path where the Replays should be moved", obs.OBS_PATH_DIRECTORY, "", None )
     
     return props
 
@@ -131,8 +131,9 @@ def check_replay_status():
         if debug_mode: print("[AMR] current_status is False and replay_status is True.")
         if len(location_from) <= 0 or len(file_type) <= 0:
             last_replay = get_last_replay()
-            location_from = os.path.dirname(os.path.abspath(last_replay))
-            filename, file_type = os.path.splitext(last_replay)
+            if last_replay is not None and len(last_replay) > 0:
+                location_from = os.path.dirname(os.path.abspath(last_replay))
+                filename, file_type = os.path.splitext(last_replay)
             
         if len(location_from) > 0 and os.path.exists(location_from) and len(location_to) > 0 and os.path.exists(location_to) :
             if debug_mode: print("[AMR] move replays.")
