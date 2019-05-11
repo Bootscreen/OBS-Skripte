@@ -12,6 +12,10 @@ Move saved replays when the replay buffer is stopped.
 Starts a continous timer after which a replay is saved.
 ![Settings Image](Images/AutoSaveReplay.jpg)
 
+# TwtichSwitcher.py
+Change Twitch Game and Title based on active Scene.
+![Settings Image](Images/TwitchSwitcher.jpg)
+
 ## Problems?
  - [here](https://github.com/Bootscreen/OBS-Skripte/issues) on Github
  - [here](http://discord.bootscreen.net) on my Discord
