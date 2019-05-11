@@ -5,7 +5,7 @@
 # date              : 2019 05 11
 # version           : 0.2
 # dependencies      : - Python 3.6 (https://www.python.org/)
-#                   :   - shutil (https://github.com/mhammond/pywin32/releases)
+#                   :   - shutil
 # notes             : Follow this step for this script to work:
 #                   : Python:
 #                   :   1. Install python (v3.6 and 64 bits, this is important)
