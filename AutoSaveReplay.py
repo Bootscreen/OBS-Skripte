@@ -22,7 +22,7 @@
 # ==============================================================================
 
 import obspython as obs
-import os, time, datetime, codecs, win32gui, win32process, win32api, win32con
+import os
 
 enabled = True
 debug_mode = False
