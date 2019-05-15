@@ -22,8 +22,7 @@
 # ==============================================================================
 
 import obspython as obs
-import os, time, datetime, codecs, win32gui, win32process, win32api, win32con
-import shutil
+import os, shutil
 
 enabled = True
 debug_mode = False
@@ -138,10 +137,11 @@ def check_replay_status():
         if len(location_from) > 0 and os.path.exists(location_from) and len(location_to) > 0 and os.path.exists(location_to) :
             if debug_mode: print("[AMR] move replays.")
             sourcefiles = os.listdir(location_from)
-            destinationpath = 'C:/Users/kevinconnell/Desktop/Test_Folder/Archive'
             for file in sourcefiles:
                 if file.endswith(file_type):
                     if debug_mode: print("[AMR] move ." + file)
-                    shutil.move(os.path.join(location_from,file), os.path.join(location_to,file))
-    
+                    try:
+                        shutil.move(os.path.join(location_from,file), os.path.join(location_to,file))
+                    except:
+                        print("[AMR] error while moving: " + file)
     replay_status = current_status
