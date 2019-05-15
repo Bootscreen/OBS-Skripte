@@ -8,7 +8,7 @@
 # notes             : Follow this step for this script to work:
 #                   : Python:
 #                   :   1. Install python (v3.6 and 64 bits, this is important)
-#                   :   2. Install python-twitch-client (pip install python-twitch-client)
+#                   :   2. Install python-twitch-client (python -m pip install python-twitch-client)
 #                   : OBS:
 #                   :   1. Go to Tools › Scripts
 #                   :   2. Click the "Python Settings" tab
@@ -23,8 +23,25 @@
 # ==============================================================================
 
 import obspython as obs
-import os, time, datetime, codecs, win32gui, win32process, win32api, win32con
-from twitch import TwitchClient
+import os, sys, importlib
+
+def check_and_install_package(package):
+    if not check_package(package):
+        install_package(package)
+        
+def check_package(package):
+    if importlib.util.find_spec(package) is None:
+        return False
+    else:
+        return True
+        
+def install_package(package):
+    python_path = os.path.join(sys.prefix ,"python.exe")
+    subprocess.call([python_path , "-m", "pip", "install", package])
+    
+def install_needed(prop, props):
+    install_package("twitch")
+    from twitch import TwitchClient
 
 enabled = True
 live = True
@@ -67,6 +84,8 @@ def script_properties():
     if debug_mode: print("[TS] Loaded properties.")
     
     props = obs.obs_properties_create()
+    if not check_package("twitch"):
+        obs.obs_properties_add_button(props, "install_libs", "installs twitch python client with pip", install_needed)
     obs.obs_properties_add_bool(props, "enabled", "Enabled")
     obs.obs_properties_add_bool(props, "debug_mode", "Debug Mode")
     obs.obs_properties_add_bool(props, "live", "Only Live")
@@ -181,6 +200,8 @@ def set_twitch():
                 return
                 
             if t_client is None:
+                if "TwitchClient" not in sys.modules:
+                    from twitch import TwitchClient
                 t_client = TwitchClient(client_id,oauth_token)
                 
             channel = t_client.channels.get()
