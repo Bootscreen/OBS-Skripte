@@ -99,6 +99,7 @@ def upgrade_package(package):
     
 def install_needed(prop, props):
     install_package("moviepy")
+    upgrade_package("imageio")
     upgrade_package("numpy")
     from moviepy.config import get_setting
     from moviepy.tools import subprocess_call
