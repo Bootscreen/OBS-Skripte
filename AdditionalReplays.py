@@ -4,7 +4,7 @@
 # description       : Adds 3 \"additional\" ReplayBuffer.
 # author            : Bootscreen
 # date              : 2019 05 11
-# version           : 0.2
+# version           : 0.2.1
 # dependencies      : - Python 3.6 (https://www.python.org/ or https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64-webinstall.exe)
 # notes             : Follow this step for this script to work:
 #                   : Python:
@@ -90,14 +90,23 @@ def check_package(package):
         return True
         
 def install_package(package):
+    global debug_mode
+    if debug_mode: 
+        print("[AR] install_package: " + package)
     python_path = os.path.join(sys.prefix ,"python.exe")
     subprocess.call([python_path , "-m", "pip", "install", package])
     
 def upgrade_package(package):
+    global debug_mode
+    if debug_mode: 
+        print("[AR] upgrade_package: " + package)
     python_path = os.path.join(sys.prefix ,"python.exe")
     subprocess.call([python_path , "-m", "pip", "install", "-U", package])
     
 def install_needed(prop, props):
+    global debug_mode
+    if debug_mode: 
+        print("[AR] install_needed")
     install_package("moviepy")
     upgrade_package("imageio")
     upgrade_package("numpy")
