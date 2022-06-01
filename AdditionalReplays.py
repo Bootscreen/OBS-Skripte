@@ -299,7 +299,11 @@ def script_load(settings):
     global replay2_hotkey
     global replay3_hotkey
     
-    if debug_mode: print("[AR] Loaded script .")
+    if debug_mode: 
+        print("[AR] Loaded script .")
+        print("[AR] moviepy version: " + moviepy.__version__)
+        print("[AR] imageio version: " + imageio.__version__)
+        print("[AR] numpy version: " + numpy.__version__)
     
     replay1_hotkey = obs.obs_hotkey_register_frontend("additional_replays.replay1", "Replay 1", save_replay1)
     hotkey_save_array = obs.obs_data_get_array(settings, "additional_replays.replay1")
