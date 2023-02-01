@@ -4,7 +4,7 @@ Skripte für OBS Streaming Software
  - [AdditionalReplays.py](#additionalreplayspy) - This project is abandoned
  - [AutoMoveReplay.py](#automovereplaypy)
  - [AutoSaveReplay.py](#autosavereplaypy)
- - [TwtichSwitcher.py](#twtichswitcherpy) - This project is abandoned
+ - [TwitchSwitcher.py](#twitchswitcherpy) - This project is abandoned
 
 # AdditionalReplays.py - This project is abandoned
 Add 3 additional Replay buffer. In reality, it saves the normal replaybuffer and clip the seconds from begin or end.  
