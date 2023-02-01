@@ -1,12 +1,12 @@
 # OBS-Skripte
 Skripte für OBS Streaming Software
 
- - [AdditionalReplays.py](#additionalreplayspy)
+ - [AdditionalReplays.py](#additionalreplayspy) - This project is abandoned
  - [AutoMoveReplay.py](#automovereplaypy)
  - [AutoSaveReplay.py](#autosavereplaypy)
- - [TwtichSwitcher.py](#twtichswitcherpy)
+ - [TwtichSwitcher.py](#twtichswitcherpy) - This project is abandoned
 
-# AdditionalReplays.py
+# AdditionalReplays.py - This project is abandoned
 Add 3 additional Replay buffer. In reality, it saves the normal replaybuffer and clip the seconds from begin or end.  
 ![Settings Image](Images/AdditionalReplays.jpg)
 
@@ -18,7 +18,7 @@ Move saved replays when the replay buffer is stopped.
 Starts a continous timer after which a replay is saved.  
 ![Settings Image](Images/AutoSaveReplay.jpg)
 
-# TwtichSwitcher.py
+# TwitchSwitcher.py - This project is abandoned
 Change Twitch Game and Title based on active Scene.  
 ![Settings Image](Images/TwitchSwitcher.jpg)
 
