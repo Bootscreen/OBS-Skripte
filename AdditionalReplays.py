@@ -117,27 +117,20 @@ def install_needed(prop, props):
 def save_and_get_last_replay():
     timestamp = time.time()
     obs.obs_frontend_replay_buffer_save()
-    path = get_last_replay()
-    if path is None:
-        sleep(2)
+
+    # Try to get the file timestamp 20 times, only then give up, interval 1 sec
+    for i in range(20):
         path = get_last_replay()
-    if not os.path.exists(path):
-        sleep(2)
-        path = get_last_replay()
-    for i in range(20): 
-        file_timestamp = os.path.getctime(path)
-        if file_timestamp < timestamp:
-            sleep(1)
-            path = get_last_replay()
-        else:
-            break
-    
-    file_timestamp = os.path.getctime(path)
-    if file_timestamp < timestamp:
-        return None
-    else:
-        return path
-    
+        if path and os.path.isfile(path):
+            file_timestamp = os.path.getctime(path)
+            if file_timestamp < timestamp:
+                path = None
+            else:
+                break
+        sleep(1)
+
+    return path
+
 def get_last_replay():
     replay_buffer = obs.obs_frontend_get_replay_buffer_output()
     cd = obs.calldata_create()
